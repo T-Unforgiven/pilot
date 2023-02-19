@@ -1,6 +1,11 @@
 #include <iostream>
 #include "bitset"
 
+void artificialswap(int& a, int& b){
+    a = a ^ b;
+    b = a ^ b;
+    a = a ^ b;
+}
 
 int bitcounterwithoutbitset(int a){
     int count = 0;
@@ -45,8 +50,10 @@ double minimum(double a[], int n){
 
 int main() {
     int a;
+    int b;
     std::cin >> a;
-    std::cout << bitcounterwithoutbitset(a);
-
+    std::cin >> b;
+    artificialswap(a, b);
+    std::cout << a << b;
     return 0;
 }
