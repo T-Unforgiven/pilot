@@ -2,6 +2,18 @@
 #include "bitset"
 
 
+int bitcounterwithoutbitset(int a){
+    int count = 0;
+    int b = 0x01;
+    for(int i = 0; i < 32; i++){
+        auto d = ~b;
+        auto c = a|d;
+        if(c==-1)
+            count++;
+        b = b << 1;
+    }
+    return count;
+}
 
 int bitcounter(int a){
     int count = 0;
@@ -34,11 +46,7 @@ double minimum(double a[], int n){
 int main() {
     int a;
     std::cin >> a;
-    std::cout << bitcounter(a);
-    auto* Array = new double [a];
-    for(int i = 0; i < a; i++)
-        std::cin >> Array[i];
-    std::cout << maximum(Array, a);
-    std::cout << minimum(Array, a);
+    std::cout << bitcounterwithoutbitset(a);
+
     return 0;
 }
